@@ -7,14 +7,27 @@ public class RandomMovementBlue : MonoBehaviour
     public Rigidbody Rb;
     public Vector3 Destination;
     public float Distance;
-    private int Speed;
 
-    public void Start()
+    private int Speed;
+    public int Agression;
+    public float Life;
+
+    public int EnemyAgression;
+
+
+    private int count;
+    private int newCount;
+
+    public void Awake()
     {
-        Destination = new Vector3(Random.Range(-9, 9), 0, Random.Range(-4, 4));
+        Destination = new Vector3(Random.Range(-8, 8), 0, Random.Range(-4, 4));
         Speed = PlayerPrefs.GetInt("SpeedBlue");
+        Agression = PlayerPrefs.GetInt("AgresBlue");
+        EnemyAgression = PlayerPrefs.GetInt("AgresRed");
+        Life = PlayerPrefs.GetFloat("Life");
+        Debug.Log("Blue stats: Speed:" + Speed + ", Agression:" + Agression + ", Life:" + Life);
     }
-    // Update is called once per frame
+
     void FixedUpdate()
     {
         Rb.drag = Rb.velocity.magnitude / 2;
@@ -22,10 +35,26 @@ public class RandomMovementBlue : MonoBehaviour
         Rb.AddRelativeForce(0, 0, Speed);
         if (Vector3.Distance(transform.position, Destination) <= 1)
         {
-            Destination = new Vector3(Random.Range(-9, 9), 0, Random.Range(-4, 4));
-            Debug.Log(" " + Destination);
+            Destination = new Vector3(Random.Range(-8, 8), 0, Random.Range(-4, 4));
+        }
+
+        if (Life < 0.5f)
+        {
+            count = PlayerPrefs.GetInt("BlueCount");
+            newCount = count - 1;
+            PlayerPrefs.SetInt("BlueCount", newCount);
+            Debug.Log("Blue Count" + newCount);
+            Destroy(gameObject);
         }
     }
 
-
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Red"))
+        {
+            Life = Life - Life * EnemyAgression / 10;
+            Debug.Log("Blue: " + Life);
+            return;
+        }
+    }
 }

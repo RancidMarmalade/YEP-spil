@@ -20,7 +20,7 @@ public class RandomMovementBlue : MonoBehaviour
 
     public void Awake()
     {
-        Destination = new Vector3(Random.Range(-8, 8), 0, Random.Range(-4, 4));
+        Destination = new Vector3(Random.Range(-8, 8), 0.1f, Random.Range(-4, 4));
         Speed = PlayerPrefs.GetInt("SpeedBlue");
         Agression = PlayerPrefs.GetInt("AgresBlue");
         EnemyAgression = PlayerPrefs.GetInt("AgresRed");
@@ -36,7 +36,7 @@ public class RandomMovementBlue : MonoBehaviour
         Rb.AddRelativeForce(0, 0, Speed);
         if (Vector3.Distance(transform.position, Destination) <= 1)
         {
-            Destination = new Vector3(Random.Range(-8, 8), 0, Random.Range(-4, 4));
+            Destination = new Vector3(Random.Range(-8, 8), 0.1f, Random.Range(-4, 4));
         }
 
         if (Life < 0.5f)

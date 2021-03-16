@@ -30,14 +30,14 @@ public class Instantieter : MonoBehaviour
         for (int i = 0; i < blueCount; i++)
         {
             GameObject blue = Instantiate(Blue);
-            blue.transform.localPosition = new Vector3(-8, 0.088f, Random.Range(-4, 4));
+            blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
             PlayerPrefs.SetFloat("BlueCount", blueCount);
         }
 
         for (int i = 0; i < redCount; i++)
         {
             GameObject red = Instantiate(Red);
-            red.transform.localPosition = new Vector3(8, 0, Random.Range(-4, 4));
+            red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
             PlayerPrefs.SetFloat("RedCount", redCount);
         }
         InvokeRepeating("ReproBlue", 5, 5);
@@ -103,7 +103,7 @@ public class Instantieter : MonoBehaviour
         for (int i = 0; i < newBlueCount_2; i++)
         {
             GameObject blue = Instantiate(Blue);
-            blue.transform.localPosition = new Vector3(-8, 0.088f, Random.Range(-4, 4));
+            blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
         }
         addedBlue = newBlueCount + newBlueCount_2;
         PlayerPrefs.SetFloat("BlueCount", addedBlue);
@@ -169,10 +169,10 @@ public class Instantieter : MonoBehaviour
         for (int i = 0; i < newRedCount_2; i++)
         {
             GameObject red = Instantiate(Red);
-            red.transform.localPosition = new Vector3(8, 0, Random.Range(-4, 4));
+            red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
         }
-        addedBlue = newBlueCount + newBlueCount_2;
-        PlayerPrefs.SetFloat("RedCount", addedBlue);
-        Debug.Log("NNN " + addedBlue);
+        addedRed = newRedCount + newRedCount_2;
+        PlayerPrefs.SetFloat("RedCount", addedRed);
+        Debug.Log("NNN " + addedRed);
     }
 }

@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class ReproBluePlus : MonoBehaviour
 {
     public Text value;
-    private int Repro_Nr = 1;
+    private float Repro_Nr = 1;
 
     void Start()
     {
-        Repro_Nr = PlayerPrefs.GetInt("ReproBlue");
+        Repro_Nr = PlayerPrefs.GetFloat("ReproBlue");
         value.text = "" + Repro_Nr;
     }
 
@@ -18,16 +18,16 @@ public class ReproBluePlus : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Repro_Nr = PlayerPrefs.GetInt("ReproBlue");
+            Repro_Nr = PlayerPrefs.GetFloat("ReproBlue");
             if (Repro_Nr <= 9)
             {
                 Repro_Nr = Repro_Nr + 1;
-                PlayerPrefs.SetInt("ReproBlue", Repro_Nr);
+                PlayerPrefs.SetFloat("ReproBlue", Repro_Nr);
             }
             else
             {
                 Repro_Nr = 1;
-                PlayerPrefs.SetInt("ReproBlue", Repro_Nr);
+                PlayerPrefs.SetFloat("ReproBlue", Repro_Nr);
             }
             value.text = "" + Repro_Nr;
             Debug.Log("Repruduction Value BLUE = " + Repro_Nr);

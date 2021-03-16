@@ -14,8 +14,8 @@ public class RandomMovementRed : MonoBehaviour
 
     public int EnemyAgression;
 
-    private int count;
-    private int newCount;
+    private float count;
+    private float newCount;
 
     public void Awake()
     {
@@ -39,10 +39,10 @@ public class RandomMovementRed : MonoBehaviour
 
         if (Life < 0.5f)
         {
-            count = PlayerPrefs.GetInt("RedCount");
+            count = PlayerPrefs.GetFloat("RedCount");
             newCount = count - 1;
-            PlayerPrefs.SetInt("RedCount", newCount);
-            Debug.Log("Red Count" + newCount);
+            PlayerPrefs.SetFloat("RedCount", newCount);
+            //Debug.Log("Red Count" + newCount);
             Destroy(gameObject);
         }
     }
@@ -52,7 +52,7 @@ public class RandomMovementRed : MonoBehaviour
         if (col.CompareTag("Blue"))
         {
             Life = Life - Life * EnemyAgression / 10;
-            Debug.Log("Red: " + Life);
+            //Debug.Log("Red: " + Life);
             return;
         }
     }

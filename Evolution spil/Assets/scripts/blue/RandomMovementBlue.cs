@@ -15,8 +15,8 @@ public class RandomMovementBlue : MonoBehaviour
     public int EnemyAgression;
 
 
-    private int count;
-    private int newCount;
+    private float count;
+    private float newCount;
 
     public void Awake()
     {
@@ -26,6 +26,7 @@ public class RandomMovementBlue : MonoBehaviour
         EnemyAgression = PlayerPrefs.GetInt("AgresRed");
         Life = PlayerPrefs.GetFloat("Life");
         Debug.Log("Blue stats: Speed:" + Speed + ", Agression:" + Agression + ", Life:" + Life);
+        count = PlayerPrefs.GetFloat("BlueCount");
     }
 
     void FixedUpdate()
@@ -40,10 +41,10 @@ public class RandomMovementBlue : MonoBehaviour
 
         if (Life < 0.5f)
         {
-            count = PlayerPrefs.GetInt("BlueCount");
+            count = PlayerPrefs.GetFloat("BlueCount");
             newCount = count - 1;
-            PlayerPrefs.SetInt("BlueCount", newCount);
-            Debug.Log("Blue Count" + newCount);
+            PlayerPrefs.SetFloat("BlueCount", newCount);
+            //Debug.Log("Blue Count" + newCount);
             Destroy(gameObject);
         }
     }
@@ -53,7 +54,7 @@ public class RandomMovementBlue : MonoBehaviour
         if (col.CompareTag("Red"))
         {
             Life = Life - Life * EnemyAgression / 10;
-            Debug.Log("Blue: " + Life);
+            //Debug.Log("Blue: " + Life);
             return;
         }
     }

@@ -25,7 +25,6 @@ public class RandomMovementBlue : MonoBehaviour
         Agression = PlayerPrefs.GetInt("AgresBlue");
         EnemyAgression = PlayerPrefs.GetInt("AgresRed");
         Life = PlayerPrefs.GetFloat("Life");
-        Debug.Log("Blue stats: Speed:" + Speed + ", Agression:" + Agression + ", Life:" + Life);
         count = PlayerPrefs.GetFloat("BlueCount");
     }
 

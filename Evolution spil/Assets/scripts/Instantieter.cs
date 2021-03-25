@@ -48,8 +48,8 @@ public class Instantieter : MonoBehaviour
     {
         newBlueCount = PlayerPrefs.GetFloat("BlueCount");
         reproBlue = PlayerPrefs.GetFloat("ReproBlue");
-        Debug.Log("RRR " + reproBlue);
-        Debug.Log("OOO " + newBlueCount);
+        Debug.Log("b-RRR " + reproBlue);
+        Debug.Log("b-OOO " + newBlueCount);
         if (reproBlue == 1)
         {
             newBlueCount_1 = newBlueCount * 0.1f;
@@ -107,15 +107,15 @@ public class Instantieter : MonoBehaviour
         }
         addedBlue = newBlueCount + newBlueCount_2;
         PlayerPrefs.SetFloat("BlueCount", addedBlue);
-        Debug.Log("NNN " + addedBlue);
+        Debug.Log("b-NNN " + addedBlue);
     }
 
     void ReproRed()
     {
         newRedCount = PlayerPrefs.GetFloat("RedCount");
         reproRed = PlayerPrefs.GetFloat("ReproRed");
-        Debug.Log("RRR " + reproBlue);
-        Debug.Log("OOO " + newRedCount);
+        Debug.Log("r-RRR " + reproRed);
+        Debug.Log("r-OOO " + newRedCount);
         if (reproBlue == 1)
         {
             newRedCount_1 = newRedCount * 0.1f;
@@ -173,6 +173,6 @@ public class Instantieter : MonoBehaviour
         }
         addedRed = newRedCount + newRedCount_2;
         PlayerPrefs.SetFloat("RedCount", addedRed);
-        Debug.Log("NNN " + addedRed);
+        Debug.Log("r-NNN " + addedRed);
     }
 }

@@ -25,7 +25,6 @@ public class RandomMovementRed : MonoBehaviour
         EnemyAgression = PlayerPrefs.GetInt("AgresBlue");
         Life = PlayerPrefs.GetFloat("Life");
     }
-
     void FixedUpdate()
     {
         Rb.drag = Rb.velocity.magnitude / 2;
@@ -45,7 +44,6 @@ public class RandomMovementRed : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Blue"))

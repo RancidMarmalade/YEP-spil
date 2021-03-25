@@ -26,7 +26,6 @@ public class RandomMovementRed : MonoBehaviour
         Life = PlayerPrefs.GetFloat("Life");
         Debug.Log("Red stats: Speed:" + Speed + ", Agression:" + Agression + ", Life:" + Life);
     }
-
     void FixedUpdate()
     {
         Rb.drag = Rb.velocity.magnitude / 2;
@@ -46,7 +45,6 @@ public class RandomMovementRed : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Blue"))

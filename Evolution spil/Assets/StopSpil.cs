@@ -11,7 +11,7 @@ public class StopSpil : MonoBehaviour
         StartCoroutine(StopTimer());
     }
     IEnumerator StopTimer() {
-        yield return new WaitForSecondsRealtime(59);
+        yield return new WaitForSecondsRealtime(10);
         SceneManager.LoadScene(3);
     }
 }

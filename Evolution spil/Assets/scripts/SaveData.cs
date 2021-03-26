@@ -12,11 +12,17 @@ public class SaveData : MonoBehaviour
     void Start()
     {
         InvokeRepeating("AddData", 5.01f, 5);
+        InvokeRepeating("Saver", 5.01f, 5);
     }
     void AddData() {
         DataBlue.Add(PlayerPrefs.GetFloat("BlueCount"));
         DataRed.Add(PlayerPrefs.GetFloat("RedCount"));
         DataIncreaseBlue.Add(PlayerPrefs.GetFloat("BlueReproCount"));
         DataIncreaseRed.Add(PlayerPrefs.GetFloat("RedReproCount"));
+    }
+    void Saver()
+    {
+        PlayerPrefs.SetFloat("Blue1", DataBlue.FindLastIndex);
+        PlayerPrefs.SetFloat("Blue2", DataBlue.FindLastIndex);
     }
 }

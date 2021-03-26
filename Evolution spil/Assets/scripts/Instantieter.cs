@@ -65,8 +65,8 @@ public class Instantieter : MonoBehaviour
     {
         newBlueCount = PlayerPrefs.GetFloat("BlueCount");
         reproBlue = PlayerPrefs.GetFloat("ReproBlue");
-        /*Debug.Log("b-RRR " + reproBlue);
-        Debug.Log("b-OOO " + newBlueCount);*/
+        Debug.Log("b-RRR " + reproBlue);
+        Debug.Log("b-OOO " + newBlueCount);
 
         if (reproChanceBlue <= reproBlue)
         {
@@ -80,9 +80,9 @@ public class Instantieter : MonoBehaviour
                 GameObject blue = Instantiate(Blue);
                 blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
             }
+            addedBlue = newBlueCount + newBlueCount_2;
+            PlayerPrefs.SetFloat("BlueCount", addedBlue);
         }
-        addedBlue = newBlueCount + newBlueCount_2;
-        PlayerPrefs.SetFloat("BlueCount", addedBlue);
         Debug.Log("b-NNN " + addedBlue);
     }
 
@@ -105,10 +105,9 @@ public class Instantieter : MonoBehaviour
                 GameObject red = Instantiate(Red);
                 red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
             }
+            addedRed = newRedCount + newRedCount_2;
+            PlayerPrefs.SetFloat("RedCount", addedRed);
         }
-
-        addedRed = newRedCount + newRedCount_2;
-        PlayerPrefs.SetFloat("RedCount", addedRed);
         Debug.Log("r-NNN " + addedRed);
     }
 }

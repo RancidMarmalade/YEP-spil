@@ -16,8 +16,8 @@ public class counter : MonoBehaviour
     {
         redCount = PlayerPrefs.GetFloat("RedCount");
         blueCount = PlayerPrefs.GetFloat("BlueCount");
-        InvokeRepeating("blueCounter", 0.01f, 1);
-        InvokeRepeating("redCounter", 0.01f, 1);
+        InvokeRepeating("blueCounter", 0.01f, 0.1f);
+        InvokeRepeating("redCounter", 0.01f, 0.1f);
     }
 
     void redCounter()

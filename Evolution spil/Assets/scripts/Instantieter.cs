@@ -82,8 +82,10 @@ public class Instantieter : MonoBehaviour
             }
             addedBlue = newBlueCount + newBlueCount_2;
             PlayerPrefs.SetFloat("BlueCount", addedBlue);
+            PlayerPrefs.SetFloat("BlueReproCount", newBlueCount_2);
         }
         Debug.Log("b-NNN " + addedBlue);
+
     }
 
     void ReproRed()
@@ -107,6 +109,7 @@ public class Instantieter : MonoBehaviour
             }
             addedRed = newRedCount + newRedCount_2;
             PlayerPrefs.SetFloat("RedCount", addedRed);
+            PlayerPrefs.SetFloat("RedReproCount", newRedCount_2);
         }
         Debug.Log("r-NNN " + addedRed);
     }

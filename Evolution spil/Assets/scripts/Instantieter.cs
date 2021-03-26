@@ -24,6 +24,12 @@ public class Instantieter : MonoBehaviour
     public float reproBlue;
     public float reproRed;
 
+    public float reproProcentBlue;
+    public float reproProcentRed;
+
+    public int reproChanceBlue;
+    public int reproChanceRed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,68 +48,38 @@ public class Instantieter : MonoBehaviour
         }
         InvokeRepeating("ReproBlue", 5, 5);
         InvokeRepeating("ReproRed", 5, 5);
+        InvokeRepeating("wtf", 5, 5);
 
+    }
+
+    void FixedUpdate()
+    {
+        reproChanceBlue = Random.Range(1, 11);
+        reproChanceRed = Random.Range(1, 11);
+    }
+    void wtf()
+    {
+        Debug.Log("time to fuck blue things");
     }
     void ReproBlue()
     {
         newBlueCount = PlayerPrefs.GetFloat("BlueCount");
         reproBlue = PlayerPrefs.GetFloat("ReproBlue");
-        Debug.Log("b-RRR " + reproBlue);
-        Debug.Log("b-OOO " + newBlueCount);
-        if (reproBlue == 1)
+        /*Debug.Log("b-RRR " + reproBlue);
+        Debug.Log("b-OOO " + newBlueCount);*/
+
+        if (reproChanceBlue <= reproBlue)
         {
-            newBlueCount_1 = newBlueCount * 0.1f;
+            Debug.Log(reproChanceBlue + ":::" + reproBlue);
+            reproProcentBlue = reproBlue / 10;
+
+            newBlueCount_1 = newBlueCount * reproProcentBlue;
             newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 2)
-        {
-            newBlueCount_1 = newBlueCount * 0.2f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 3)
-        {
-            newBlueCount_1 = newBlueCount * 0.3f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 4)
-        {
-            newBlueCount_1 = newBlueCount * 0.4f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 5)
-        {
-            newBlueCount_1 = newBlueCount * 0.5f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 6)
-        {
-            newBlueCount_1 = newBlueCount * 0.6f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 7)
-        {
-            newBlueCount_1 = newBlueCount * 0.7f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 8)
-        {
-            newBlueCount_1 = newBlueCount * 0.8f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 9)
-        {
-            newBlueCount_1 = newBlueCount * 0.9f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        else if (reproBlue == 10)
-        {
-            newBlueCount_1 = newBlueCount * 1f;
-            newBlueCount_2 = Mathf.Round(newBlueCount_1);
-        }
-        for (int i = 0; i < newBlueCount_2; i++)
-        {
-            GameObject blue = Instantiate(Blue);
-            blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
+            for (int i = 0; i < newBlueCount_2; i++)
+            {
+                GameObject blue = Instantiate(Blue);
+                blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
+            }
         }
         addedBlue = newBlueCount + newBlueCount_2;
         PlayerPrefs.SetFloat("BlueCount", addedBlue);
@@ -116,61 +92,21 @@ public class Instantieter : MonoBehaviour
         reproRed = PlayerPrefs.GetFloat("ReproRed");
         Debug.Log("r-RRR " + reproRed);
         Debug.Log("r-OOO " + newRedCount);
-        if (reproBlue == 1)
+
+        if (reproChanceRed <= reproRed)
         {
-            newRedCount_1 = newRedCount * 0.1f;
+            Debug.Log(reproChanceRed + ":::" + reproRed);
+            reproProcentRed = reproRed / 10;
+
+            newRedCount_1 = newRedCount * reproProcentRed;
             newRedCount_2 = Mathf.Round(newRedCount_1);
+            for (int i = 0; i < newRedCount_2; i++)
+            {
+                GameObject red = Instantiate(Red);
+                red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
+            }
         }
-        else if (reproBlue == 2)
-        {
-            newRedCount_1 = newRedCount * 0.2f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 3)
-        {
-            newRedCount_1 = newRedCount * 0.3f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 4)
-        {
-            newRedCount_1 = newRedCount * 0.4f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 5)
-        {
-            newRedCount_1 = newRedCount * 0.5f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 6)
-        {
-            newRedCount_1 = newRedCount * 0.6f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 7)
-        {
-            newRedCount_1 = newRedCount * 0.7f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 8)
-        {
-            newRedCount_1 = newRedCount * 0.8f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 9)
-        {
-            newRedCount_1 = newRedCount * 0.9f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        else if (reproBlue == 10)
-        {
-            newRedCount_1 = newRedCount * 1f;
-            newRedCount_2 = Mathf.Round(newRedCount_1);
-        }
-        for (int i = 0; i < newRedCount_2; i++)
-        {
-            GameObject red = Instantiate(Red);
-            red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
-        }
+
         addedRed = newRedCount + newRedCount_2;
         PlayerPrefs.SetFloat("RedCount", addedRed);
         Debug.Log("r-NNN " + addedRed);

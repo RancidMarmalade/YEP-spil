@@ -21,8 +21,9 @@ public class SaveData : MonoBehaviour
         DataIncreaseRed.Add(PlayerPrefs.GetFloat("RedReproCount"));
     }
     void Saver()
-    {
+    {/*
         PlayerPrefs.SetFloat("Blue1", DataBlue.FindLastIndex);
         PlayerPrefs.SetFloat("Blue2", DataBlue.FindLastIndex);
+        */
     }
 }

@@ -350,6 +350,18 @@ MonoBehaviour:
   DataBlue: []
   DataIncreaseBlue: []
   DataIncreaseRed: []
+  DataRedArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DataBlueArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!4 &1171662477
 Transform:
   m_ObjectHideFlags: 0
@@ -377,7 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 3
-  TIME_LIMIT: 59
+  TIME_LIMIT: 35
 --- !u!1 &1347406334
 GameObject:
   m_ObjectHideFlags: 0

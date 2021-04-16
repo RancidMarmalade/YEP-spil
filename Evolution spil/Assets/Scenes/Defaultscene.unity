@@ -350,6 +350,18 @@ MonoBehaviour:
   DataBlue: []
   DataIncreaseBlue: []
   DataIncreaseRed: []
+  DataRedArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DataBlueArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!4 &1171662477
 Transform:
   m_ObjectHideFlags: 0

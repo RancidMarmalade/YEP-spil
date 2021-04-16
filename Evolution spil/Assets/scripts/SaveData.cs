@@ -9,14 +9,14 @@ public class SaveData : MonoBehaviour
     public List<float> DataIncreaseBlue;
     public List<float> DataIncreaseRed;
 
-    public float[] DataRedArray = new float[5];
-    public float[] DataBlueArray = new float[5];
+    public float[] DataRedArray = new float[11];
+    public float[] DataBlueArray = new float[11];
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("AddData", 5.01f, 5);
         InvokeRepeating("Saver", 5.01f, 5);
-        Invoke("Save", 29.9f);
+        Invoke("Save", 58.9f);
     }
     void AddData() {
         DataBlue.Add(PlayerPrefs.GetFloat("BlueCount"));
@@ -26,7 +26,7 @@ public class SaveData : MonoBehaviour
     }
     void Save()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 11; i++)
         {
             DataRedArray[i] = DataRed[i];
             PlayerPrefs.SetFloat("Red" + i, DataRedArray[i]);

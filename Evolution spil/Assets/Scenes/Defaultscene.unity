@@ -201,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blue: {fileID: 5881511663693026369, guid: 94d7636a43bca0142b7f596ca0c2c07a, type: 3}
   Red: {fileID: 696679522851787154, guid: 685098164bc2a4346bdafe6f21b82397, type: 3}
-  blueCount: 5
-  redCount: 5
+  blueCount: 10
+  redCount: 10
   reproBlue: 0
   reproRed: 0
   reproProcentBlue: 0
@@ -350,6 +350,30 @@ MonoBehaviour:
   DataBlue: []
   DataIncreaseBlue: []
   DataIncreaseRed: []
+  DataRedArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  DataBlueArray:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
 --- !u!4 &1171662477
 Transform:
   m_ObjectHideFlags: 0
@@ -377,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 3
-  TIME_LIMIT: 49
+  TIME_LIMIT: 60
 --- !u!1 &1347406334
 GameObject:
   m_ObjectHideFlags: 0

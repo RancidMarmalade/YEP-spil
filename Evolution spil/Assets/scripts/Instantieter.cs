@@ -54,8 +54,8 @@ public class Instantieter : MonoBehaviour
 
     void FixedUpdate()
     {
-        reproChanceBlue = Random.Range(1, 11);
-        reproChanceRed = Random.Range(1, 11);
+        //reproChanceBlue = Random.Range(1, 11);
+        //reproChanceRed = Random.Range(1, 11);
     }
     void wtf()
     {

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e64c0f8c929144ea4aabe43b5f95f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathParticleRed: {fileID: 7630925761603393468, guid: e75e193e58cf0fa48afcb9a1db9d25fe, type: 3}
   Rb: {fileID: 2885176843755007054}
   Destination: {x: 0, y: 0, z: 0}
   Distance: 0

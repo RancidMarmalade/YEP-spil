@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomMovementRed : MonoBehaviour
 {
+    public GameObject DeathParticleRed;
     public Rigidbody Rb;
     public Vector3 Destination;
     public float Distance;
@@ -40,6 +41,7 @@ public class RandomMovementRed : MonoBehaviour
             count = PlayerPrefs.GetFloat("RedCount");
             newCount = count - 1;
             PlayerPrefs.SetFloat("RedCount", newCount);
+            Instantiate(DeathParticleRed,transform.position,transform.rotation);
             //Debug.Log("Red Count" + newCount);
             Destroy(gameObject);
         }

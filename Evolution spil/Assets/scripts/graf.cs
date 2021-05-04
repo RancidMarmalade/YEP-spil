@@ -9,6 +9,7 @@ public class graf : MonoBehaviour
     public GameObject Blue;
     public GameObject Red;
     public GameObject Count;
+
     private Text bT;
     private Text rT;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class graf : MonoBehaviour
         float Divider = 0;
         float b0o = 0;
         float r0o = 0;
+        float scale = 1;
         for (int j = 0; j < 11; j++)
         {
             string b = "Blue" + j.ToString();
@@ -35,19 +37,29 @@ public class graf : MonoBehaviour
         if (b0o >= 91000 || r0o >= 91000)
         {
             Divider = 1000;
+            scale = 1000;
         }
         else if (b0o >= 9100 || r0o >= 9100)
         {
             Divider = 100;
+            scale = 100;
         }
         else if (b0o >= 910 || r0o >= 910)
         {
             Divider = 10;
+            scale = 10;
         }
-        else if (b0o >= 90 || r0o >= 90)
+        else if (b0o >= 91 || r0o >= 91)
         {
             Divider = 1;
+            scale = 1;
         }
+        else
+        {
+            Divider = 0.1f;
+            scale = 0.1f;
+        }
+
         float x = 50;
         float startPos = (11 * 120 / 2 + 10) * -1;
         for (int i = 0; i < 11; i++)
@@ -61,15 +73,15 @@ public class graf : MonoBehaviour
             float b0 = PlayerPrefs.GetFloat(b);
             Debug.Log("b0|1: " + b0);
             float r0 = PlayerPrefs.GetFloat(r);
-            b0 = (b0 * 10) / Divider;
-            r0 = (r0 * 10) / Divider;
+            float b0n = (b0 * 10) / Divider;
+            float r0n = (r0 * 10) / Divider;
             float b0x = startPos + (120 * (i + 1));
-            float b0y = -440 + (b0 / 2);
-            float r0y = -440 + (r0 / 2);
+            float b0y = -440 + (b0n / 2);
+            float r0y = -440 + (r0n / 2);
             blue.transform.localPosition = new Vector2(b0x, b0y);
             red.transform.localPosition = new Vector2(b0x - x, r0y);
-            blue.GetComponent<RectTransform>().sizeDelta = new Vector2(x, b0);
-            red.GetComponent<RectTransform>().sizeDelta = new Vector2(x, r0);
+            blue.GetComponent<RectTransform>().sizeDelta = new Vector2(x, b0n);
+            red.GetComponent<RectTransform>().sizeDelta = new Vector2(x, r0n);
             var textb = Instantiate(Count) as GameObject;
             textb.transform.SetParent(blue.transform, false);
             bT = textb.GetComponent<Text>();
@@ -79,11 +91,5 @@ public class graf : MonoBehaviour
             rT = textr.GetComponent<Text>();
             rT.text = "" + r0;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 3
-  TIME_LIMIT: 60
+  TIME_LIMIT: 29
 --- !u!1 &1347406334
 GameObject:
   m_ObjectHideFlags: 0

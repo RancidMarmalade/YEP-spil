@@ -38,6 +38,7 @@ public class Instantieter : MonoBehaviour
             GameObject blue = Instantiate(Blue);
             blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
             PlayerPrefs.SetFloat("BlueCount", blueCount);
+
         }
 
         for (int i = 0; i < redCount; i++)
@@ -45,6 +46,7 @@ public class Instantieter : MonoBehaviour
             GameObject red = Instantiate(Red);
             red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
             PlayerPrefs.SetFloat("RedCount", redCount);
+       
         }
         InvokeRepeating("ReproBlue", 5, 5);
         InvokeRepeating("ReproRed", 5, 5);
@@ -79,6 +81,7 @@ public class Instantieter : MonoBehaviour
             {
                 GameObject blue = Instantiate(Blue);
                 blue.transform.localPosition = new Vector3(-8, 0.1f, Random.Range(-4, 4));
+              
             }
             addedBlue = newBlueCount + newBlueCount_2;
             PlayerPrefs.SetFloat("BlueCount", addedBlue);
@@ -106,6 +109,7 @@ public class Instantieter : MonoBehaviour
             {
                 GameObject red = Instantiate(Red);
                 red.transform.localPosition = new Vector3(8, 0.12f, Random.Range(-4, 4));
+              
             }
             addedRed = newRedCount + newRedCount_2;
             PlayerPrefs.SetFloat("RedCount", addedRed);

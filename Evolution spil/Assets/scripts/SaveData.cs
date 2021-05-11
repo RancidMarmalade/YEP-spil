@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
 {
@@ -15,12 +16,21 @@ public class SaveData : MonoBehaviour
     void Start()
     {
         InvokeRepeating("AddData", 5.01f, 5);
-        InvokeRepeating("Saver", 5.01f, 5);
         Invoke("Save", 58.9f);
     }
     void AddData() {
         DataBlue.Add(PlayerPrefs.GetFloat("BlueCount"));
+        float blue = PlayerPrefs.GetFloat("BlueCount");
+        if (blue <= .9f)
+        {
+            Save();
+        }
         DataRed.Add(PlayerPrefs.GetFloat("RedCount"));
+        float red = PlayerPrefs.GetFloat("RedCount");
+        if (red <= .9f)
+        {
+            Save();
+        }
         DataIncreaseBlue.Add(PlayerPrefs.GetFloat("BlueReproCount"));
         DataIncreaseRed.Add(PlayerPrefs.GetFloat("RedReproCount"));
     }
@@ -33,5 +43,6 @@ public class SaveData : MonoBehaviour
             DataBlueArray[i] = DataBlue[i];
             PlayerPrefs.SetFloat("Blue" + i, DataBlueArray[i]);
         }
+        SceneManager.LoadScene(3);
     }
 }

@@ -47,6 +47,7 @@ public class RandomMovementBlue : MonoBehaviour
             Instantiate(DeathParticleBlue, transform.position, transform.rotation);
             //Debug.Log("Blue Count" + newCount);
             Destroy(gameObject);
+
         }
     }
 

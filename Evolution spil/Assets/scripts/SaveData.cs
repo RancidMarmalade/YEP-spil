@@ -5,38 +5,46 @@ using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
 {
-    public List<float> DataRed;
-    public List<float> DataBlue;
-    public List<float> DataIncreaseBlue;
-    public List<float> DataIncreaseRed;
+    public List<int> DataRed;
+    public List<int> DataBlue;
 
-    public float[] DataRedArray = new float[11];
-    public float[] DataBlueArray = new float[11];
+    public int blue, red, roundCount;
+
+    public int[] DataRedArray;
+    public int[] DataBlueArray;
     // Start is called before the first frame update
     void Start()
     {
+        roundCount = 0;
         InvokeRepeating("AddData", 5.01f, 5);
         Invoke("Save", 58.9f);
     }
     void AddData() {
-        DataBlue.Add(PlayerPrefs.GetFloat("BlueCount"));
-        float blue = PlayerPrefs.GetFloat("BlueCount");
-        if (blue <= .9f)
+        roundCount = roundCount + 1;
+        blue = (int)PlayerPrefs.GetFloat("BlueCount");
+        DataBlue.Add(blue);
+        if (blue <= 1)
         {
             Save();
         }
-        DataRed.Add(PlayerPrefs.GetFloat("RedCount"));
-        float red = PlayerPrefs.GetFloat("RedCount");
-        if (red <= .9f)
+        red = (int)PlayerPrefs.GetFloat("RedCount");
+        DataRed.Add(red);
+        if (red < 1)
         {
             Save();
         }
-        DataIncreaseBlue.Add(PlayerPrefs.GetFloat("BlueReproCount"));
-        DataIncreaseRed.Add(PlayerPrefs.GetFloat("RedReproCount"));
+        checkIfDead();
     }
     void Save()
     {
         for (int i = 0; i < 11; i++)
+        {
+            PlayerPrefs.DeleteKey("Red" + i);
+            PlayerPrefs.DeleteKey("Blue" + i);
+        }
+        DataRedArray = new int[roundCount];
+        DataBlueArray = new int[roundCount];
+        for (int i = 0; i < roundCount; i++)
         {
             DataRedArray[i] = DataRed[i];
             PlayerPrefs.SetFloat("Red" + i, DataRedArray[i]);
@@ -44,5 +52,12 @@ public class SaveData : MonoBehaviour
             PlayerPrefs.SetFloat("Blue" + i, DataBlueArray[i]);
         }
         SceneManager.LoadScene(3);
+    }
+    void checkIfDead()
+    {
+        if (red < 1 || blue < 1)
+        {
+            Save();
+        }
     }
 }

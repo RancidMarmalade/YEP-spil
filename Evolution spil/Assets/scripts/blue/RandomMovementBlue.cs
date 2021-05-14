@@ -56,7 +56,6 @@ public class RandomMovementBlue : MonoBehaviour
         if (col.CompareTag("Red"))
         {
             Life = Life - Life * EnemyAgression / 10;
-            //Debug.Log("Blue: " + Life);
             return;
         }
     }

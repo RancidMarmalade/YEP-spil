@@ -50,18 +50,8 @@ public class Instantieter : MonoBehaviour
         }
         InvokeRepeating("ReproBlue", 5, 5);
         InvokeRepeating("ReproRed", 5, 5);
-        InvokeRepeating("wtf", 5, 5);
 
-    }
 
-    void FixedUpdate()
-    {
-        //reproChanceBlue = Random.Range(1, 11);
-        //reproChanceRed = Random.Range(1, 11);
-    }
-    void wtf()
-    {
-        Debug.Log("time to fuck blue things");
     }
     void ReproBlue()
     {

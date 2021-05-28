@@ -23,13 +23,13 @@ public class SaveData : MonoBehaviour
         roundCount = roundCount + 1;
         blue = (int)PlayerPrefs.GetFloat("BlueCount");
         DataBlue.Add(blue);
+        red = (int)PlayerPrefs.GetFloat("RedCount");
+        DataRed.Add(red);
         if (blue <= 1)
         {
             Save();
         }
-        red = (int)PlayerPrefs.GetFloat("RedCount");
-        DataRed.Add(red);
-        if (red < 1)
+        else if (red < 1)
         {
             Save();
         }
@@ -55,6 +55,8 @@ public class SaveData : MonoBehaviour
     }
     void checkIfDead()
     {
+        blue = (int)PlayerPrefs.GetFloat("BlueCount");
+        red = (int)PlayerPrefs.GetFloat("RedCount");
         if (red < 1 || blue < 1)
         {
             Save();

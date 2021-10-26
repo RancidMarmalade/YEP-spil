@@ -1,37 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
-{   //disse lister er dem som opbevare dataen. 
-    public List<float> DataRed;
-    public List<float> DataBlue;
-    public List<float> DataIncreaseBlue;
-    public List<float> DataIncreaseRed;
+{
+    public List<int> DataRed;
+    public List<int> DataBlue;
 
-    public float[] DataRedArray = new float[11];
-    public float[] DataBlueArray = new float[11];
+    public int blue, red, roundCount;
+
+    public int[] DataRedArray;
+    public int[] DataBlueArray;
     // Start is called before the first frame update
-    void Start()//Denne funktion starter de funktioner som gemmer dataen fra spillet.
+    void Start()
     {
+        roundCount = 0;
         InvokeRepeating("AddData", 5.01f, 5);
-        InvokeRepeating("Saver", 5.01f, 5);
-        Invoke("Save", 28.9f);
+        Invoke("Save", 58.9f);
     }
-    void AddData() {//Her tilføjes den data som vi skal gemme til en liste. 
-        DataBlue.Add(PlayerPrefs.GetFloat("BlueCount"));
-        DataRed.Add(PlayerPrefs.GetFloat("RedCount"));
-        DataIncreaseBlue.Add(PlayerPrefs.GetFloat("BlueReproCount"));
-        DataIncreaseRed.Add(PlayerPrefs.GetFloat("RedReproCount"));
+    void AddData() {
+        roundCount = roundCount + 1;
+        blue = (int)PlayerPrefs.GetFloat("BlueCount");
+        DataBlue.Add(blue);
+        red = (int)PlayerPrefs.GetFloat("RedCount");
+        DataRed.Add(red);
+        if (blue <= 1)
+        {
+            Save();
+        }
+        else if (red < 1)
+        {
+            Save();
+        }
+        checkIfDead();
     }
-    void Save()//Denne funktion gemmer den liste som forrige funktion lavede, sådan så vi kan bruge den i stats scenen. 
+    void Save()
     {
-        for (int i = 0; i < 11; i++)//dette for loop, gemmer dataen lige inde scenerne skifter til stats. 
+        for (int i = 0; i < 11; i++)
+        {
+            PlayerPrefs.DeleteKey("Red" + i);
+            PlayerPrefs.DeleteKey("Blue" + i);
+        }
+        DataRedArray = new int[roundCount];
+        DataBlueArray = new int[roundCount];
+        for (int i = 0; i < roundCount; i++)
         {
             DataRedArray[i] = DataRed[i];
             PlayerPrefs.SetFloat("Red" + i, DataRedArray[i]);
             DataBlueArray[i] = DataBlue[i];
             PlayerPrefs.SetFloat("Blue" + i, DataBlueArray[i]);
+        }
+        SceneManager.LoadScene(3);
+    }
+    void checkIfDead()
+    {
+        blue = (int)PlayerPrefs.GetFloat("BlueCount");
+        red = (int)PlayerPrefs.GetFloat("RedCount");
+        if (red < 1 || blue < 1)
+        {
+            Save();
         }
     }
 }

@@ -47,6 +47,7 @@ public class RandomMovementBlue : MonoBehaviour
             Instantiate(DeathParticleBlue, transform.position, transform.rotation);
             //Debug.Log("Blue Count" + newCount);
             Destroy(gameObject);
+
         }
     }
 
@@ -55,7 +56,6 @@ public class RandomMovementBlue : MonoBehaviour
         if (col.CompareTag("Red"))
         {
             Life = Life - Life * EnemyAgression / 10;
-            //Debug.Log("Blue: " + Life);
             return;
         }
     }
